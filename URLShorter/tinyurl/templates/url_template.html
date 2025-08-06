@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL SHORTENING TOOL</title>
+</head>
+<div class="urlcontainer">
+    <form method="POST">
+         {% csrf_token %}
+        <label for="inurl">Give Your URL Name</label>
+        <input type="text" id="inurl" name="inurl" required>
+        <br>
+        <input type="submit" value="SUBMIT">
+    </form>
+    {% if output %}
+      <p> Shortened URL <strong><a href={{input}}>{{output}}</a></strong></p>
+    {% elif error %}
+      <p style="color:red;"> {{error}} </p>
+    {% endif %}
+</div>
+</body>
+</html>
